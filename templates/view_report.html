@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>View Activity</title>
+</head>
+{% include 'navbar_logged.html' %}
+{% load custom_tags %}
+
+<body >
+    <div class="container">
+    
+        <table style = "margin-left:auto;margin-right:auto;margin-top:30px;" id="zero_config" class="table table-striped table-bordered">
+            <thead>
+                    <tr>
+                        <th>Headline</th>
+                        <th>Body</th>
+                        <th>Dates</th>
+
+                        <th>Time Spent On Task</th>
+                        <th>Active Working Time</th>
+                        <th>On Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for j in tasks%}
+                    <tr>            
+                        <th><a >{{j.headline}}</a></th>
+                        <th><a >{{j.body}}</a></th>
+                        {%if j.is_completed == 0 %}
+                        <td>
+                            <p><strong>Started At: {{j.started_at}}</strong></p>
+                            <p><strong>Completed At: -</strong></p>
+                            <p><strong>Deadline: -</strong></p>
+                        </td>            
+                        {%endif%}
+                        {%if j.is_completed == 1 %}
+                        <td>
+                            <p><strong>Started At: {{j.started_at}}</strong></p>
+                            <p><strong>Completed At: {{j.closed_at}}</strong></p>
+                            <p><strong>Deadline: {{j.deadline}}</strong></p>
+                        </td>
+                        <th><a >{{j.task_time|seconds_to_hhmmss}}</a></th>
+                        <th>
+                            {{j.task_effective_time|seconds_to_hhmmss}}
+                        </th>
+                        {%if j.is_overdue == 0 %}
+                        <th><a><strong>Yes</strong></a></th>
+                        {%endif%}
+                        {%if j.is_overdue == 1 %}
+                        <th><a><strong>No</strong></a></th>
+                        {%endif%}
+                        {%endif%}
+
+                    </tr>
+                    {% endfor %}
+                    
+                </tbody>
+
+            </table>
+        </div>
+</body>

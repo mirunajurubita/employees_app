@@ -1,0 +1,84 @@
+{%load static%}
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--FONTAWESOME CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/fontawesome.min.css">
+    
+    <title>Employee Page</title>
+    <!-- Custom CSS -->
+    <link href="{%static 'css/navbar_logged.css'%}" rel="stylesheet">
+
+</head>
+{% include 'navbar_logged.html' %}
+<style>
+    body{
+        background-color: rgba(236, 245, 255, 0.41);
+        font-size:20px;
+    }
+    .first-card{
+        background:white;
+        margin-left:auto;
+        margin-right:auto;
+        width:60%;
+        height:auto;
+        align-items: center;
+        display:block;
+    }
+    .item{
+        background-color:#b1d3ff8c;
+        margin-top:10px;
+        height:80px;
+        width:auto;
+        margin-left:auto;
+        margin-right:auto;
+        text-align: center;
+        display:flex;
+        flex-direction: column;
+    }
+    .item:hover{
+        background-color: #b1d3ffec;
+        cursor:pointer;
+        text-align: center;
+    }
+    .item a{
+        text-decoration: none;
+        color:black;
+        margin-top:10px;
+    }
+</style>
+<body>
+    
+    <div class="container">
+        <div class="first-card" style = "margin-top:100px;">
+                <div class="item" id = "1">
+                    <a href = "viewMyReports">My Reports</a>
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+                <div class="item" id = "3">
+                    <a href = "viewActiveTasks">View Active Tasks</a>           
+                    <i class="fa-solid fa-bars-progress"></i>      
+                </div>
+                <div class="item" id = "4">
+                    <a href = "employeeClosedTasks">Completed Tasks</a>
+                    <i class="fa-sharp fa-solid fa-list-check"></i>
+                </div>
+                <div class="item" id = "5">
+                    <a href = "viewAttendance">View Attendance and Schedule</a>
+                    <i class="fas fa-calendar-week"></i>
+                </div>
+    </div>
+    </div>
+    
+</body>
+
+
+</html>

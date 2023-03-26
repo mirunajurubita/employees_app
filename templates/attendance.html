@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Add New Attendance Page</title>
+    <!-- Custom CSS -->
+    <link href="{% static 'css/add_task.css' %}" rel="stylesheet">
+    <link href="{% static 'css/navbar_logged.css' %}" rel="stylesheet">
+
+</head>
+{% include 'navbar_logged.html' %}
+<body>
+
+    <div class="container">
+
+
+        <div class = "container" style = "display:grid;grid-template-columns: repeat(2,1fr);gap: 2rem;">
+            <div class = "item" id = "1" style = "align-items:center;margin-top:20px;display:grid;">
+        <form action="setAttendanceSave" method = "POST" style = "margin-top:30px;margin-left:40%;margin-right:30%;">
+            {%csrf_token%}
+                    
+                <div class="line" style = " display:grid;">
+                    <label for="start_time">Choose the start time and date: </label>
+                    <input type="datetime-local" href = "addTaskSave" id="start_time" name="start_time"  min="{{start_time}}" style ="width:320px;">
+                {{start_time}}
+                </div>
+                <div class="line" style = " display:grid;">
+                    <label for="end_time">Choose the end time and date: </label>
+                    <input type="datetime-local" href = "addTaskSave" id="end_time" name="end_time"  min="{{end_time}}" style ="width:320px;">
+                {{end_time}}
+                </div>
+                <div class = "line" style = "display:grid;width:320px;">
+                    <h6>Choose the type of the task:</h6>
+                        <select name = "a_type">
+                            <option value="" selected disabled hidden>Type</option>
+                            <option  value = "Workday">Workday</option>
+                            <option  value = "Holiday">Holiday</option>
+                            <option  value = "Sick Leave">Sick Leave</option>
+                        </select>
+                </div>
+                <div class = "line" style = "display:grid;width:320px;">
+                    {% for msg in messages %}
+                    <p>{{msg}}</p>
+                    {% endfor %}
+                </div>
+                <div class="line" style = " display:grid;">
+                    <label for="pause_details">Notes </label>
+                    <textarea id="notes" name="notes" value = "{{notes}}" rows="4" cols="50" style ="width:320px;">{{notes}}</textarea>
+                    
+                </div>
+                <button type="submit" class="btn btn-primary" style = "margin-top:10px;">Submit</button>
+                <br>
+                
+            </div>
+            <div class = "item" id = "2" style = "margin-left:130px; margin-top:75px;display:block;">
+                <h6>Choose one or more employees:</h6>
+                    {% for employee in employees %}
+                    <div>
+                    <input type="checkbox" id="usernames" name="usernames" value="{{employee.username}}">
+                    <label label for="vehicle1">{{employee.first_name}} {{employee.last_name}}</label>
+                    </div>
+
+                    {% endfor %}
+                </div> 
+            </form>
+        </div>  
+    </div>
+   
+</body>
+
+</html>

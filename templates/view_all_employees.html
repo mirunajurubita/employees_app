@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <title>All Employees</title>
+    <!-- Custom CSS -->
+    <link href="{% static 'css/view_all_employees.css' %}" rel="stylesheet">
+    <link href="{% static 'css/navbar_logged.css' %}" rel="stylesheet">
+
+</head>
+{% include 'navbar_logged.html' %}
+<body>
+
+    <div class="container">
+    <h4 style = "margin-left:15px; color:#233863;"class="page-title">All Employees</h4>
+
+        <table style = "width:80%;" id="zero_config" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Delete User</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Daily Report</th>
+                    <th>Weekly Report</th>
+                    <th>Monthly Report</th>
+                    <th>Annual Report</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in employees %}
+                <tr >
+                    <th><a class="btn" style = "background-color:#b1d3ff;border:none;padding:3px 8px; font-size:13px;margin-top:10px;" href="{% url 'deleteUser' pk=i.id %}"  action = "dailyReport" type="submit" >Delete </a></th>
+                    <th><a href = "particularEmployee/{{i.id}}" style="color:#233863; text-decoration: none;">{{i.first_name}}</a></th>
+                    <th><a href = "particularEmployee/{{i.id}}" style="color:#233863; text-decoration: none;">{{i.last_name}}</a></th>
+                    <th><a href = "particularEmployee/{{i.id}}" style="color:#233863; text-decoration: none;">{{i.username}}</a></t>
+                        <th><a href = "particularEmployee/{{i.id}}" style="color:#233863; text-decoration: none;">{{i.email}}</a></t>
+                    <th><a class="btn" style = "background-color:#b1d3ff;border:none;padding:3px 8px;" href="{% url 'dailyReport' pk=i.id %}"  action = "dailyReport" type="submit" >  Daily Reports </a></th>
+                    <th><a class="btn" style = "background-color:#b1d3ff;border:none;padding:3px 8px;" href="{% url 'weeklyReport' pk=i.id %}"   action = "weeklyReport" type="submit" >  Weekly Reports </a></th>
+                    <th><a class="btn" style = "background-color:#b1d3ff;border:none;padding:3px 8px;" href="{% url 'monthlyReport' pk=i.id %}"   action = "monthlyReport" type="submit" >  Monthly Reports </a></th>
+                    <th><a class="btn" style = "background-color:#b1d3ff;border:none;padding:3px 8px;" href="{% url 'annualReport' pk=i.id %}"   action = "annualReport" type="submit" >  Annual Reports </a></th>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+  
+
+</body>
+
+</html>

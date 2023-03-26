@@ -1,0 +1,70 @@
+{% load static %}
+{% load mathfilters %}
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="{% static 'css/view_activity.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="jquery-3.6.1.min.js"></script>
+
+    <title>View Activity</title>
+</head>
+{% include 'navbar_logged.html' %}
+<body >
+    <h4 class="page-title" style = "text-align:center;margin-top:30px;">View Schedule</h4>  
+    <form method="post" style = "margin-left:150px;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Filter">
+      </form>
+        <table style = "width:75%;margin-left:auto;margin-right:auto;margin-top:30px;" id="zero_config" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th style = "width:10%;">Type</th>
+                    <th style = "width:20%;">Start Time</th>
+                    <th style = "width:20%;">End Time</th>
+                    <th>Notes</th>
+                    <td>Edit</td>
+                </tr>
+            </thead>
+            <tbody>
+                {%for a in schedules%}
+                <tr >
+   
+                    <th><a href = "viewReport/{{j.id}}" style="text-decoration:none;color:black;">{{a.a_type}}</a></th>
+                    <th><a href = "viewReport/{{j.id}}" style="text-decoration:none;color:black;">{{a.start_time}}</a></th>
+                    <th><a href = "viewReport/{{j.id}}" style="text-decoration:none;color:black; text-decoration: none;">{{ a.end_time}}</a></th>
+                    <th><a href = "viewReport/{{j.id}}" style="text-decoration:none;color:black; text-decoration: none;">{{ a.notes}}</a></th>
+                    <th style = "width:10%;">
+                        <form action="editAttendance" method = "POST" >
+                            {%csrf_token%}
+                                <input type="datetime-local"  id="end_time" name="end_time"  min="{{end_time}}" style ="width:220px;">
+                                <button type="submit" class="btn btn-primary" style = "margin-top:10px;">Submit</button>
+                            {{end_time}}
+                            </div>
+                        </form>
+                    </th>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>  
+    
+    
+    
+</body>
+
+
+
+
+
+</html>

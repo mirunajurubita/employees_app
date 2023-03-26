@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="{% static 'css/view_activity.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="jquery-3.6.1.min.js"></script>
+
+    <title>View Activity</title>
+</head>
+{% include 'navbar_logged.html' %}
+<body >
+    <div class="container">
+    
+            <table style = "width:100%;margin-top:30px;" id="zero_config" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Headline</th>
+                        <th>Body</th>
+                        <th>Started At</th>
+                        <th>Completed At</th>
+                        <th>Deadline</th>
+                        <th>Time Spent On Task</th>
+                        <th>On Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for j in tasks1%}
+                    <tr>            
+
+                        <th><a >{{j.headline}}</a></th>
+                        <th><a >{{j.body}}</a></th>            
+                        <th><a >{{j.started_at}}</a></th>
+                        {%if j.is_completed == 0 %}
+                        <th><a >-</a></th>
+                        <th><a >{{j.deadline}}</a></th>
+                        <th><a >-</a></th>
+                        <th><a >-</a></th>
+                        {%endif%}
+                        {%if j.is_completed == 1 %}
+                        <th><a >{{j.closed_at}}</a></th>
+                        <th><a >{{j.deadline}}</a></th>
+
+                        <th><a > {{j.task_time.hour}} hours {{j.task_time.minute}} minutes</a></th>
+                        
+                        {%if j.is_overdue == 0 %}
+                        <th><a>Yes</a></th>
+                        {%endif%}
+                        {%if j.is_overdue == 1 %}
+                        <th><a>No</a></th>
+                        {%endif%}
+                        {%endif%}
+
+                  
+                    </tr>
+                    {% endfor %}
+                    {%for j in tasks2%}
+                    <tr >               
+
+                        <th><a >{{j.headline}}</a></th>
+                        <th><a >{{j.body}}</a></th>            
+                        <th><a >{{j.started_at}}</a></th>
+                        {%if j.is_completed == 0 %}
+                        <th><a >-</a></th>
+                        <th><a >{{j.deadline}}</a></th>
+                        <th><a >-</a></th>
+                        <th><a >-</a></th>
+                        {%endif%}
+                        {%if j.is_completed == 1 %}
+                        <th><a >{{j.closed_at}}</a></th>
+                        <th><a >{{j.deadline}}</a></th>
+
+                        <th><a > {{j.task_time.hour}} hours {{j.task_time.minute}} minutes</a></th>
+
+                        {%if j.is_overdue == 0 %}
+                        <th><a>Yes</a></th>
+                        {%endif%}
+                        {%if j.is_overdue == 1 %}
+                        <th><a>No</a></th>
+                        {%endif%}
+                        {%endif%}
+                        
+                    </tr>
+                    {% endfor %}
+                    {%for j in tasks3%}
+                    <tr >            
+
+                        <th><a >{{j.headline}}</a></th>
+                        <th><a >{{j.body}}</a></th>            
+                        <th><a >{{j.started_at}}</a></th>
+                        {%if j.is_completed == 0 %}
+                        <th><a >-</a></th>
+                        <th><a >{{j.deadline}}</a></th>
+                        <th><a >-</a></th>
+                        <th><a >-</a></th>
+                        {%endif%}
+                        {%if j.is_completed == 1 %}
+                        <th><a >{{j.closed_at}}</a></th>
+                        <th><a >{{j.deadline}}</a></th>
+
+                        <th><a > {{j.task_time.hour}} hours {{j.task_time.minute}} minutes</a></th>
+
+                        {%if j.is_overdue == 0 %}
+                        <th><a>Yes</a></th>
+                        {%endif%}
+                        {%if j.is_overdue == 1 %}
+                        <th><a>No</a></th>
+                        {%endif%}
+                        {%endif%}
+
+                        
+                    </tr>
+                    {% endfor %}
+
+
+                    {%for j in tasks4%}
+                    <tr >            
+
+                        <th><a >{{j.headline}}</a></th>
+                        <th><a >{{j.body}}</a></th>            
+                        <th><a >{{j.started_at}}</a></th>
+                        {%if j.is_completed == 0 %}
+                        <th><a >-</a></th>
+                        <th><a >{{j.deadline}}</a></th>
+                        <th><a >-</a></th>
+                        <th><a >-</a></th>
+                        {%endif%}
+                        {%if j.is_completed == 1 %}
+                        <th><a >{{j.closed_at}}</a></th>
+                        <th><a >{{j.deadline}}</a></th>
+                        <th><a > {{j.task_time.hour}} hours {{j.task_time.minute}} minutes</a></th>
+
+                        {%if j.is_overdue == 0 %}
+                        <th><a>Yes</a></th>
+                        {%endif%}
+                        {%if j.is_overdue == 1 %}
+                        <th><a>No</a></th>
+                        {%endif%}
+                        {%endif%}
+
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+</body>

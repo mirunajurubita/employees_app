@@ -1,0 +1,19 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+h4{
+    margin-left:15px;
+}
+.table-employees{
+    margin-top:20px;
+}
+table{
+    margin-top:20px;
+}
+table, th, tr {
+    border:1px solid #b1d3ff;
+    border-collapse: collapse;
+}
+th,tr,td{
+    width:70%;
+}

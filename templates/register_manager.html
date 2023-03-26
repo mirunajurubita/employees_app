@@ -1,0 +1,56 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <title>Admin Sign Up</title>
+    <!-- Custom CSS -->
+    <link href="{% static 'css/register_manager.css' %}" rel="stylesheet">
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet">
+
+  </head>
+  {% include 'navbar.html' %}
+  <body>
+
+
+              <div class="form-block">
+                <br>
+                <br>
+                <br>
+                    <h1 style = "font-size:42px; color:#233863;" >Admin Registration Page</h1>
+                <form  method="post" style = "padding-top:10px;">
+                    {% csrf_token %}
+                  <div class="form-group" >
+                    <label for="username" style = "padding-top:10px;font-size:20px; color:#233863;">Username</label>
+                      {{ form.username }}
+                  </div>
+                  <div class="form-group">
+                    <label for="email" style = "padding-top:10px;font-size:20px; color:#233863;">Email</label>
+                      {{ form.email}}
+                  </div>
+                  <div class="form-group">
+                    <label for="password" style = "padding-top:10px;font-size:20px; color:#233863;">Password</label>
+                      {{ form.password1 }}
+                  </div>
+                  <div class="form-group">
+                    <label for="password" style = "padding-top:5px;font-size:20px; color:#233863;">Confirm Password</label>
+                      {{ form.password2 }}
+                  </div>
+                 
+                  <input type="submit" style = "background-color:#b1d3ff;border:none;margin-top:10px;padding:10px 18px;" value="Register" class="btn">
+                </form>
+              </div>
+
+
+
+
+
+
+</body>
+</html>

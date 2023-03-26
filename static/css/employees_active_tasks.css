@@ -1,0 +1,30 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.button{
+    margin-left: auto; 
+    margin-right:auto;
+    text-decoration: none;margin-top:20px;
+}
+.wrapper{
+    margin-top:40px;
+}
+table{
+    margin-top:25px;
+
+}
+table, tr, th{
+    border:1px solid #b1d3ff;
+}
+h4{
+    text-align: center;
+    color:#233863;
+}
+th,td{
+    color:#233863;
+    width:150px;
+
+}
+thead, tbody, tfoot{
+
+}

@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <title>Employees Management App</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+  <div class="container" style = "display:flex;">
+      <div class="split" style = "float:left;max-width: 500px;width:50%;margin:100px 30px 15px 0px;">
+          <img src = "/static/images/9814.jpg" style = "width:     auto;
+          max-width: 700px;
+          height:    auto;
+          margin:    0 auto;
+          display:   block;"/>
+      </div>
+
+    <div class="split" style = "margin-right:100px;margin-top:50px;margin-left:150px;">
+      <div class = "card" style = "width:350px;border-color: #a9ceff;border-width: 3px;height:450px;border-radius: 60px;margin-left:200px;margin-top:80px;">
+            <h6 style = "align-items: center;margin-left:auto;margin-right:auto;margin-top:70px;">Welcome back! Please login!</h6>
+            <form id="loginUser" action = '/loginUser'  method = "post"  style = "margin-left:25%;margin-right:auto;" >
+                
+              {% csrf_token %}
+              <div class = "field" style = "margin-top:20px;display: grid;">
+                <label style = "color:#233863;" for="username">Username:</label>
+                <input style = "width:65%;" type="text" placeholder="Username" aria-label="Username"  name = "username">
+              </div>
+              <div class = "field" style = "margin-top:10px; display: grid;">
+                <label style = "color:#233863;" for="password">Password:</label>
+                <input style = "width:65%;"type="password"  placeholder="Password" aria-label="Password"  name = "password">
+              </div>
+                <button  style= "background-color:#b1d3ff;border:none;margin-top:10px;padding:10px 18px;" class="btn" type="submit">Login</button>
+                <p style = "font-size:12px;">Forgot Password Or New Employee? <a style = "text-decoration: none;color:black;" href = "{% url "reset_password" %}">Reset Password</a></p>
+              </form>
+        </div>
+    
+      </div>
+  </div>
+      
+  
+</body>
+
+</html>

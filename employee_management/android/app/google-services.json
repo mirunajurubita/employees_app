@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "203284684089",
+    "firebase_url": "https://employeesmanagementnotif-default-rtdb.firebaseio.com",
+    "project_id": "employeesmanagementnotif",
+    "storage_bucket": "employeesmanagementnotif.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203284684089:android:6c08ab32e262f424e49ce8",
+        "android_client_info": {
+          "package_name": "com.example.employee_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203284684089-u78u8gd0rldusqehvd218tcmggl789d2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCugCZ4a_keMtaDAIEPXWp6TLCzR_a4nok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203284684089-u78u8gd0rldusqehvd218tcmggl789d2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "203284684089-f448i4nk7l0stesveh8639l66g3sj0pf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.employeeManagement"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
